@@ -1,3 +1,4 @@
+import InvitationGate from './invitation-gate';
 import type { Metadata } from 'next';
 import './globals.css';
 import Music from './music';
@@ -47,13 +48,14 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>
+      <body><InvitationGate>
         <a className="skip-link" href="#invitation">
           Skip to wedding details
         </a>
         {children}
         <Music />
-      </body>
+      </InvitationGate></body>
     </html>
   );
 }
+

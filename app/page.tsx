@@ -181,9 +181,8 @@ export default function Home() {
           <div className="swatches">
             {[
               ['Ivory', '#eee7db'],
-              ['Dusty blue', '#9dB0b5'],
+              ['Dusty blue', '#9db0b5'],
               ['Blush', '#c9a6a0'],
-              ['Soft gold', '#b4a07a'],
             ].map(([label, color]) => (
               <div key={label}>
                 <span style={{ background: color }} />
@@ -222,7 +221,7 @@ export default function Home() {
           {[
             [
               'What should I wear?',
-              'Our dress code is semi-formal. The palette above is your inspiration: ivory, dusty blue, blush, and soft gold.',
+              'Our dress code is semi-formal. The palette above is your inspiration: ivory, dusty blue, and blush.',
             ],
             [
               'Where are the ceremony and reception?',
@@ -302,6 +301,7 @@ export default function Home() {
     </main>
   );
 }
+
 
 
 

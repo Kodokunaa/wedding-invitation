@@ -17,6 +17,7 @@ export default function Music() {
     let disposed = false;
     element.volume = 0.35;
     const start = () => {
+      if (document.documentElement.dataset.invitationOpen !== 'true') return;
       if (!element.paused || Array.from(document.querySelectorAll<HTMLVideoElement>('[data-wedding-montage]')).some(video => !video.paused && !video.muted && video.volume > 0 && !video.error)) return;
       void element.play().then(() => {
         if (!disposed) setBlocked(false);
@@ -30,12 +31,14 @@ export default function Music() {
       else start();
     };
     window.addEventListener('wedding-montage-change', syncMontage);
+    window.addEventListener('wedding-invitation-open', start);
     start();
     // Retry on an ordinary page interaction if the browser blocks initial sound.
     document.addEventListener('pointerdown', start);
     document.addEventListener('keydown', start);
     return () => {
       disposed = true;
+      window.removeEventListener('wedding-invitation-open', start);
       window.removeEventListener('wedding-montage-change', syncMontage);
       document.removeEventListener('pointerdown', start);
       document.removeEventListener('keydown', start);
@@ -114,5 +117,6 @@ export default function Music() {
     </aside>
   );
 }
+
 
 
