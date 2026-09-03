@@ -1,0 +1,15 @@
+# Local tooling and generated artifacts do not belong in a Vercel upload.
+.git
+.openai
+.agents
+.codex
+node_modules
+dist
+outputs
+work
+integrations
+tests
+.env
+.env.local
+.env.*.local
+*.tsbuildinfo

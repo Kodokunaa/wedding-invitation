@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Brandon and Lourey//Wedding//EN
+BEGIN:VEVENT
+UID:brandon-lourey-ceremony-20260909
+DTSTAMP:20260902T000000Z
+DTSTART:20260909T020000Z
+SUMMARY:Brandon and Lourey Mae - Wedding Ceremony
+LOCATION:Mandaluyong City RTC 210
+DESCRIPTION:Reception follows at 1 PM at Circles Event Cafe\, Makati Shangri-La\, Manila. All times Philippine Standard Time.
+END:VEVENT
+BEGIN:VEVENT
+UID:brandon-lourey-reception-20260909
+DTSTAMP:20260902T000000Z
+DTSTART:20260909T050000Z
+SUMMARY:Brandon and Lourey Mae - Wedding Reception
+LOCATION:Circles Event Cafe\, Makati Shangri-La\, Manila
+END:VEVENT
+END:VCALENDAR
