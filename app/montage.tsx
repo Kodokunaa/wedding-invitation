@@ -13,8 +13,17 @@ export default function Montage() {
       if (!element.paused) return;
       void element.play().then(() => {
         if (disposed) element.pause();
-      }).catch(() => {
-        // Retry on the next page interaction when audible autoplay is blocked.
+      }).catch(async (error: unknown) => {
+        if (disposed || !(error instanceof DOMException) || error.name !== 'NotAllowedError') return;
+        // Audible autoplay may be denied; keep the background moving without a click.
+        element.muted = true;
+        notifyMusic();
+        try {
+          await element.play();
+          if (disposed) element.pause();
+        } catch {
+          // Media/device restrictions can still prevent playback.
+        }
       });
     };
     start();
@@ -40,4 +49,5 @@ export default function Montage() {
     onPlaying={notifyMusic} onPause={notifyMusic} onError={notifyMusic}
   />;
 }
+
 

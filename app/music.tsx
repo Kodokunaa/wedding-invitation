@@ -17,7 +17,7 @@ export default function Music() {
     let disposed = false;
     element.volume = 0.35;
     const start = () => {
-      if (!element.paused || Array.from(document.querySelectorAll<HTMLVideoElement>('[data-wedding-montage]')).some(video => !video.paused && !video.error)) return;
+      if (!element.paused || Array.from(document.querySelectorAll<HTMLVideoElement>('[data-wedding-montage]')).some(video => !video.paused && !video.muted && video.volume > 0 && !video.error)) return;
       void element.play().then(() => {
         if (!disposed) setBlocked(false);
       }).catch(() => {
@@ -25,7 +25,7 @@ export default function Music() {
       });
     };
     const syncMontage = () => {
-      const playing = Array.from(document.querySelectorAll<HTMLVideoElement>('[data-wedding-montage]')).some(video => !video.paused && !video.error);
+      const playing = Array.from(document.querySelectorAll<HTMLVideoElement>('[data-wedding-montage]')).some(video => !video.paused && !video.muted && video.volume > 0 && !video.error);
       if (playing) element.pause();
       else start();
     };
@@ -114,4 +114,5 @@ export default function Music() {
     </aside>
   );
 }
+
 
