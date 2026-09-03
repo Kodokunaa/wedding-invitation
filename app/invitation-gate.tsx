@@ -1,4 +1,5 @@
 'use client';
+import Monogram from './monogram';
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 
@@ -79,7 +80,7 @@ export default function InvitationGate({ children }: { children: ReactNode }) {
           </g>
         </svg>
         <span className="envelope-flap" aria-hidden="true" />
-        <span className="envelope-seal" aria-hidden="true"><span className="seal-crest">B<i>&</i>L</span></span>
+        <span className="envelope-seal" aria-hidden="true"><span className="seal-crest"><Monogram /></span></span>
         <span className="envelope-address" aria-hidden="true">To our dearest family & friends</span>
         {!unsealed && <button className="envelope-open-trigger" type="button"
           onClick={openInvitation} aria-label="Open the envelope and enter the wedding website" />}
@@ -87,9 +88,11 @@ export default function InvitationGate({ children }: { children: ReactNode }) {
       <p className="envelope-prompt" aria-live="polite">{unsealed ? 'Your invitation is opening…' : 'Tap the envelope to open'}</p>
       <p className="envelope-note">Our celebration begins with a little music.</p>
     </section>}
-    <div ref={content} tabIndex={-1} hidden={!opened && !entering} inert={!opened} className={"invitation-content" + (entering ? " is-revealing" : "")}>{children}</div>
+    <div ref={content} tabIndex={-1} hidden={!opened && !entering} inert={!opened} className={"invitation-content" + (entering && !opened ? " is-revealing" : "")}>{children}</div>
   </>;
 }
+
+
 
 
 

@@ -1,3 +1,4 @@
+import Monogram from './monogram';
 import Montage from './montage';
 import { Countdown, Gallery, RSVP, Navigation } from './interactions';
 import { optionalDetails } from './wedding-config';
@@ -291,8 +292,8 @@ export default function Home() {
         </div>
       </section>
       <footer>
-        <a className="monogram" href="#home">
-          B<span>&</span>L
+        <a className="monogram" href="#home" aria-label="Brandon and Lourey Mae, back to top">
+          <Monogram />
         </a>
         <p>BRANDON & LOUREY MAE</p>
         <span>09.09.2026 · With love, always.</span>
@@ -301,6 +302,7 @@ export default function Home() {
     </main>
   );
 }
+
 
 
 

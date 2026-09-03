@@ -1,4 +1,5 @@
 'use client';
+import Monogram from './monogram';
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -28,7 +29,7 @@ export function Navigation() {
         href="#home"
         aria-label="Brandon and Lourey Mae, back to top"
       >
-        B<span>&</span>L
+        <Monogram />
       </a>
       <nav className="desktop-nav" aria-label="Wedding navigation">
         {links.map(([title, id]) => (
@@ -338,5 +339,6 @@ export function RSVP() {
     </form>
   );
 }
+
 
 

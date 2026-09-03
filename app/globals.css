@@ -1843,3 +1843,9 @@ html{scroll-padding-top:104px}.site-header{position:sticky;top:0;z-index:40;back
   .envelope-interactive.is-open .envelope-letter { transform: translateY(-66%); }
 }
 .envelope-interactive .envelope-letter { cursor: default; }
+
+.bl-monogram { display: block; width: 48px; height: 48px; overflow: visible; }
+.monogram { display: inline-flex; align-items: center; justify-content: center; color: #526b72; line-height: 1; }
+footer .bl-monogram { width: 64px; height: 64px; --monogram-cutout: #eee7db; }
+.seal-crest .bl-monogram { width: 42px; height: 42px; --monogram-cutout: #c9a6a0; }
+@media (max-width: 600px) { .site-header .bl-monogram { width: 40px; height: 40px; } }
